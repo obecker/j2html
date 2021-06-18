@@ -86,4 +86,12 @@ public interface HtmlBuilder<T extends Appendable> extends Appendable {
     @Override
     @Deprecated
     HtmlBuilder<T> append(char c) throws IOException;
+
+    static <A extends Appendable> DefaultHtmlBuilder<A> into(A out) {
+        return new DefaultHtmlBuilder<>(out);
+    }
+
+    static DefaultHtmlBuilder<StringBuilder> inMemory() {
+        return into(new StringBuilder());
+    }
 }

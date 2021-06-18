@@ -9,7 +9,10 @@ import java.io.IOException;
  * Composes HTML without any extra line breaks or indentation.
  *
  * @param <T> The type of the Appendable to which HTML will be appended.
+ *
+ * @deprecated in favor of {@link DefaultHtmlBuilder}
  */
+@Deprecated
 public class FlatHtml<T extends Appendable> implements HtmlBuilder<T> {
 
     /**
@@ -19,7 +22,9 @@ public class FlatHtml<T extends Appendable> implements HtmlBuilder<T> {
      * @param out The Appendable to which HTML will be appended.
      * @param <T> The type of the Appendable to which HTML will be appended.
      * @return An HtmlBuilder for flat HTML.
+     * @deprecated in favor of {@link HtmlBuilder#into(Appendable)}
      */
+    @Deprecated
     public static final <T extends Appendable> FlatHtml<T> into(T out) {
         return new FlatHtml<>(out, Config.defaults());
     }
@@ -32,7 +37,9 @@ public class FlatHtml<T extends Appendable> implements HtmlBuilder<T> {
      * @param config The Config which will specify text escapement, tag closing, etc.
      * @param <T>    The type of the Appendable to which HTML will be appended.
      * @return An HtmlBuilder for flat HTML.
+     * @deprecated in favor of {@link HtmlBuilder#into(Appendable)}
      */
+    @Deprecated
     public static final <T extends Appendable> FlatHtml<T> into(T out, Config config) {
         return new FlatHtml<>(out, config);
     }
@@ -42,7 +49,9 @@ public class FlatHtml<T extends Appendable> implements HtmlBuilder<T> {
      * using Config defaults.
      *
      * @return An HtmlBuilder for flat HTML.
+     * @deprecated in favor of {@link HtmlBuilder#inMemory()}
      */
+    @Deprecated
     public static final FlatHtml<StringBuilder> inMemory() {
         return into(new StringBuilder());
     }
@@ -52,7 +61,9 @@ public class FlatHtml<T extends Appendable> implements HtmlBuilder<T> {
      * using the given Config.
      * @param config The Config which will specify text escapement, tag closing, etc.
      * @return An HtmlBuilder for flat HTML.
+     * @deprecated in favor of {@link HtmlBuilder#inMemory()}
      */
+    @Deprecated
     public static final FlatHtml<StringBuilder> inMemory(Config config) {
         return into(new StringBuilder(), config);
     }
